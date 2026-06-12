@@ -5,19 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#000000">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>Dance Vault - Premium Media & Digital Programs</title>
+
+<!-- SEO Meta Tags -->
+<title>Dance Vault | The Digital History of a Dancer</title>
+<meta name="description" content="The permanent digital memory box and keepsake for the performing arts. Interactive digital programs, media clouds, and history vaults for dancers.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<!-- Using Oswald as a web-safe fallback for Agency FB if the user doesn't have it installed -->
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
 /* ══════════════════════════════════════
-   RESET & CINEMATIC BACKGROUND
+   RESET & CINEMATIC ANIMATION
 ══════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: 'Jost', sans-serif;
-  background: #000000 url('DSC_0139.jpg') no-repeat center center fixed;
-  background-size: cover;
+  background-color: #030105;
   color: #ffffff;
   min-height: 100vh;
   display: flex;
@@ -25,22 +30,35 @@ body {
   justify-content: space-between;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  position: relative;
 }
 
-/* Gradient overlay to ensure text readability over the image */
-body::before {
-  content: '';
+/* Cinematic B&W Slow-Zoom Background */
+.bg-cinematic {
+  position: fixed;
+  top: -5%; left: -5%; right: -5%; bottom: -5%;
+  background: url('DSC_0139.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: 0;
+  filter: grayscale(100%) contrast(1.1) brightness(0.8);
+  animation: slowZoom 30s linear infinite alternate;
+}
+
+@keyframes slowZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+/* Gradient overlay for text readability */
+.bg-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(3,1,5,0.7) 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(3,1,5,0.85) 100%);
   z-index: 1;
   pointer-events: none;
 }
 
-header, main, footer {
-  position: relative;
-  z-index: 2;
-}
+header, main, footer { position: relative; z-index: 2; }
 
 /* ══════════════════════════════════════
    NAVBAR HEADER
@@ -60,14 +78,13 @@ header {
 .brand-suite { font-size: 12px; letter-spacing: 0.2em; color: #F2CEE8; font-weight: 300; text-transform: uppercase; }
 
 /* ══════════════════════════════════════
-   HERO / MAIN CONTENT
+   HERO & LIVE TEXT LOGO
 ══════════════════════════════════════ */
 main {
-  max-width: 800px;
+  max-width: 1000px;
   width: 100%;
   margin: 0 auto;
-  padding: 40px 24px;
-  text-align: center;
+  padding: 20px 24px 60px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -75,26 +92,52 @@ main {
   align-items: center;
 }
 
-.logo-container {
-  max-width: 450px;
+.hero-logo-group {
+  margin-bottom: 40px;
   width: 100%;
-  margin-bottom: 32px;
-  opacity: 0.95;
+  max-width: 480px;
 }
-.logo-container img {
+
+.live-logo {
+  font-family: 'Agency FB', 'Oswald', sans-serif;
+  font-size: clamp(60px, 12vw, 110px);
+  font-weight: 400;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.live-logo .pink { color: #F2CEE8; }
+.live-logo .white { color: #ffffff; }
+
+.live-tagline {
+  font-family: 'Calibri', 'Jost', sans-serif;
+  font-size: clamp(14px, 3vw, 22px);
+  color: #ffffff;
+  font-weight: 300;
+  margin-top: 8px;
+  /* This magic property perfectly aligns the text side-to-side */
+  text-align-last: justify;
   width: 100%;
-  height: auto;
   display: block;
 }
 
-.tagline {
-  font-size: clamp(20px, 4vw, 28px);
-  font-weight: 200;
-  letter-spacing: 0.05em;
-  color: #ffffff;
-  line-height: 1.4;
-  margin-bottom: 16px;
-  max-width: 600px;
+/* ══════════════════════════════════════
+   GLASSMORPHISM CONTENT BOX
+══════════════════════════════════════ */
+.content-wrapper {
+  background: rgba(9, 3, 16, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  max-width: 700px; /* Perfectly aligns paragraph and cards */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
 .notice-badge {
@@ -108,56 +151,50 @@ main {
   border-radius: 30px;
   text-transform: uppercase;
   margin-bottom: 24px;
-  display: inline-block;
 }
 
 .description {
   font-size: 15px;
-  color: #aba3c2;
+  color: #ffffff;
   line-height: 1.8;
-  max-width: 580px;
+  text-align: center;
   margin-bottom: 40px;
   font-weight: 300;
+  width: 100%;
 }
 
-/* Suite Products Navigation Cards */
+/* ══════════════════════════════════════
+   SUITE CARDS & CIRCLES
+══════════════════════════════════════ */
 .suite-row {
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
   width: 100%;
-  max-width: 650px;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 600px) {
   .suite-row { grid-template-columns: 1fr 1fr; }
 }
 
 .suite-card {
-  background: rgba(9, 3, 16, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   padding: 24px;
   text-decoration: none;
-  text-align: left;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
 }
 
 .suite-card:hover {
   border-color: #F2CEE8;
-  background: rgba(242, 206, 232, 0.04);
-  transform: translateY(-2px);
+  background: rgba(242, 206, 232, 0.05);
 }
 
-.sc-code {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  color: #F2CEE8;
-  margin-bottom: 8px;
-}
+.sc-text { padding-right: 16px; }
 
 .sc-title {
   font-size: 18px;
@@ -171,6 +208,44 @@ main {
   color: #aba3c2;
   line-height: 1.5;
   font-weight: 300;
+}
+
+/* The CSS Circles */
+.sc-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: 'Agency FB', 'Oswald', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.suite-card:hover .sc-circle {
+  background: #F2CEE8;
+  transform: scale(1.05);
+}
+
+/* Disabled Card Styling */
+.sc-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+.sc-disabled:hover {
+  border-color: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.4);
+}
+.sc-disabled:hover .sc-circle {
+  background: #ffffff;
+  transform: none;
 }
 
 /* ══════════════════════════════════════
@@ -190,12 +265,15 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
-.foot-l { font-size: 9px; letter-spacing: 0.2em; color: #555; }
-.foot-brand { color: #aba3c2; font-weight: 500; }
-.foot-r { font-size: 9px; color: #555; letter-spacing: 0.1em; }
+.foot-l { font-size: 9px; letter-spacing: 0.2em; color: #777; }
+.foot-brand { color: #ffffff; font-weight: 500; }
+.foot-r { font-size: 9px; color: #777; letter-spacing: 0.1em; }
 </style>
 </head>
 <body>
+
+<div class="bg-cinematic"></div>
+<div class="bg-overlay"></div>
 
 <!-- TOP NAV BAR -->
 <header>
@@ -208,36 +286,42 @@ footer {
 
 <!-- MAIN STUDIO HUB -->
 <main>
-  <!-- Beautifully Rendered Logotype -->
-  <div class="logo-container">
-    <img src="PNG Just Dance Vault.png" alt="DANCEVAULT Logotype">
+  
+  <!-- Live Text SEO Logo -->
+  <div class="hero-logo-group">
+    <div class="live-logo"><span class="pink">DANCE</span><span class="white">VAULT</span></div>
+    <h1 class="live-tagline">The digital history of a dancer.</h1>
   </div>
 
-  <div class="notice-badge">CORE VAULT UNDER CONSTRUCTION</div>
-  
-  <h1 class="tagline">The permanent digital memory box for the performing arts.</h1>
-  
-  <p class="description">
-    We are busy laying the foundation for our secure, high-fidelity media engine—designed to store, organize, and protect every showcase memory from a dancer's first class to graduation.
-  </p>
-
-  <!-- Product Suite Selection Options -->
-  <div class="suite-row">
+  <!-- Glassmorphism Container to perfectly align text and boxes -->
+  <div class="content-wrapper">
+    <div class="notice-badge">CORE VAULT UNDER CONSTRUCTION</div>
     
-    <!-- DVP App (Active Money Maker Route) -->
-    <a href="/programs" class="suite-card">
-      <div class="sc-code">DVP</div>
-      <div class="sc-title">Digital Programs →</div>
-      <div class="sc-desc">Interactive, mobile-first show rosters and playbills. Live and operational for recital season.</div>
-    </a>
+    <p class="description">
+      We are busy laying the foundation for our secure, high-fidelity media engine—designed to store, organize, and protect every showcase memory from a dancer's first class to graduation.
+    </p>
 
-    <!-- Core DV App (Teaser/Locked Option) -->
-    <div class="suite-card" style="opacity: 0.6; cursor: not-allowed; border-style: dashed;">
-      <div class="sc-code" style="color: #666;">DV</div>
-      <div class="sc-title">Media Cloud</div>
-      <div class="sc-desc">Secure storage vaults for studio photography and continuous multi-year student video archives.</div>
+    <div class="suite-row">
+      
+      <!-- DVP App -->
+      <a href="/programs" class="suite-card">
+        <div class="sc-text">
+          <div class="sc-title">Digital Programs</div>
+          <div class="sc-desc">Interactive, mobile-first show rosters and playbills. Live and operational for recital season.</div>
+        </div>
+        <div class="sc-circle">DVP</div>
+      </a>
+
+      <!-- Core DV App -->
+      <div class="suite-card sc-disabled">
+        <div class="sc-text">
+          <div class="sc-title">Media Cloud</div>
+          <div class="sc-desc">Secure storage vaults for studio photography and continuous multi-year student video archives.</div>
+        </div>
+        <div class="sc-circle">DV</div>
+      </div>
+
     </div>
-
   </div>
 </main>
 
