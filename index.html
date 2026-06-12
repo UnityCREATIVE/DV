@@ -8,11 +8,10 @@
 
 <!-- SEO Meta Tags -->
 <title>Dance Vault | The Digital History of a Dancer</title>
-<meta name="description" content="The permanent digital memory box and keepsake for the performing arts. Interactive digital programs, media clouds, and history vaults for dancers.">
+<meta name="description" content="The permanent digital memory box and keepsake for the performing arts. Interactive digital programs, media clouds, and performance albums for dancers.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Using Oswald as a web-safe fallback for Agency FB if the user doesn't have it installed -->
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
@@ -33,7 +32,8 @@ body {
   position: relative;
 }
 
-/* Cinematic B&W Slow-Zoom Background */
+/* Cinematic B&W Slow-Zoom Background 
+   IMPORTANT: Ensure 'DSC_0139.jpg' matches your GitHub file exactly! */
 .bg-cinematic {
   position: fixed;
   top: -5%; left: -5%; right: -5%; bottom: -5%;
@@ -96,6 +96,7 @@ main {
   margin-bottom: 40px;
   width: 100%;
   max-width: 480px;
+  text-align: center;
 }
 
 .live-logo {
@@ -105,20 +106,17 @@ main {
   line-height: 0.85;
   letter-spacing: -0.02em;
   text-transform: uppercase;
-  text-align: center;
 }
 .live-logo .pink { color: #F2CEE8; }
 .live-logo .white { color: #ffffff; }
 
 .live-tagline {
   font-family: 'Calibri', 'Jost', sans-serif;
-  font-size: clamp(14px, 3vw, 22px);
+  font-size: clamp(16px, 3.5vw, 22px);
   color: #ffffff;
   font-weight: 300;
-  margin-top: 8px;
-  /* This magic property perfectly aligns the text side-to-side */
-  text-align-last: justify;
-  width: 100%;
+  margin-top: 12px;
+  letter-spacing: 0.05em;
   display: block;
 }
 
@@ -133,7 +131,7 @@ main {
   border-radius: 16px;
   padding: 40px;
   width: 100%;
-  max-width: 700px; /* Perfectly aligns paragraph and cards */
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -203,9 +201,10 @@ main {
   margin-bottom: 6px;
 }
 
+/* Updated text to bright white for high contrast */
 .sc-desc {
   font-size: 12px;
-  color: #aba3c2;
+  color: #ffffff;
   line-height: 1.5;
   font-weight: 300;
 }
@@ -293,7 +292,7 @@ footer {
     <h1 class="live-tagline">The digital history of a dancer.</h1>
   </div>
 
-  <!-- Glassmorphism Container to perfectly align text and boxes -->
+  <!-- Glassmorphism Container -->
   <div class="content-wrapper">
     <div class="notice-badge">CORE VAULT UNDER CONSTRUCTION</div>
     
