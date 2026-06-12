@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Dance Vault - Premium Media & Digital Programs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════
+   RESET & CINEMATIC BACKGROUND
+══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Jost', sans-serif;
+  background: #000000 url('DSC_0139.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Gradient overlay to ensure text readability over the image */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(3,1,5,0.7) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+header, main, footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* ══════════════════════════════════════
+   NAVBAR HEADER
+══════════════════════════════════════ */
+header {
+  padding: 24px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+.brand { display: flex; align-items: baseline; gap: 6px; text-decoration: none; }
+.brand-dv { font-size: 14px; letter-spacing: 0.35em; color: #ffffff; font-weight: 600; text-transform: uppercase; }
+.brand-sep { color: #444; font-size: 12px; }
+.brand-suite { font-size: 12px; letter-spacing: 0.2em; color: #F2CEE8; font-weight: 300; text-transform: uppercase; }
+
+/* ══════════════════════════════════════
+   HERO / MAIN CONTENT
+══════════════════════════════════════ */
+main {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 24px;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container {
+  max-width: 450px;
+  width: 100%;
+  margin-bottom: 32px;
+  opacity: 0.95;
+}
+.logo-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.tagline {
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 200;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  line-height: 1.4;
+  margin-bottom: 16px;
+  max-width: 600px;
+}
+
+.notice-badge {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: #F2CEE8;
+  border: 1px solid rgba(242, 206, 232, 0.3);
+  background: rgba(242, 206, 232, 0.05);
+  padding: 6px 16px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+
+.description {
+  font-size: 15px;
+  color: #aba3c2;
+  line-height: 1.8;
+  max-width: 580px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+/* Suite Products Navigation Cards */
+.suite-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+  max-width: 650px;
+}
+
+@media (min-width: 480px) {
+  .suite-row { grid-template-columns: 1fr 1fr; }
+}
+
+.suite-card {
+  background: rgba(9, 3, 16, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 24px;
+  text-decoration: none;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.suite-card:hover {
+  border-color: #F2CEE8;
+  background: rgba(242, 206, 232, 0.04);
+  transform: translateY(-2px);
+}
+
+.sc-code {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #F2CEE8;
+  margin-bottom: 8px;
+}
+
+.sc-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.sc-desc {
+  font-size: 12px;
+  color: #aba3c2;
+  line-height: 1.5;
+  font-weight: 300;
+}
+
+/* ══════════════════════════════════════
+   FOOTER
+══════════════════════════════════════ */
+footer {
+  padding: 24px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+.foot-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.foot-l { font-size: 9px; letter-spacing: 0.2em; color: #555; }
+.foot-brand { color: #aba3c2; font-weight: 500; }
+.foot-r { font-size: 9px; color: #555; letter-spacing: 0.1em; }
+</style>
+</head>
+<body>
+
+<!-- TOP NAV BAR -->
+<header>
+  <a href="#" class="brand">
+    <span class="brand-dv">DANCE VAULT</span>
+    <span class="brand-sep">·</span>
+    <span class="brand-suite">SUITE</span>
+  </a>
+</header>
+
+<!-- MAIN STUDIO HUB -->
+<main>
+  <!-- Beautifully Rendered Logotype -->
+  <div class="logo-container">
+    <img src="PNG Just Dance Vault.png" alt="DANCEVAULT Logotype">
+  </div>
+
+  <div class="notice-badge">CORE VAULT UNDER CONSTRUCTION</div>
+  
+  <h1 class="tagline">The permanent digital memory box for the performing arts.</h1>
+  
+  <p class="description">
+    We are busy laying the foundation for our secure, high-fidelity media engine—designed to store, organize, and protect every showcase memory from a dancer's first class to graduation.
+  </p>
+
+  <!-- Product Suite Selection Options -->
+  <div class="suite-row">
+    
+    <!-- DVP App (Active Money Maker Route) -->
+    <a href="/programs" class="suite-card">
+      <div class="sc-code">DVP</div>
+      <div class="sc-title">Digital Programs →</div>
+      <div class="sc-desc">Interactive, mobile-first show rosters and playbills. Live and operational for recital season.</div>
+    </a>
+
+    <!-- Core DV App (Teaser/Locked Option) -->
+    <div class="suite-card" style="opacity: 0.6; cursor: not-allowed; border-style: dashed;">
+      <div class="sc-code" style="color: #666;">DV</div>
+      <div class="sc-title">Media Cloud</div>
+      <div class="sc-desc">Secure storage vaults for studio photography and continuous multi-year student video archives.</div>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-content">
+    <div class="foot-l">© 2026 <span class="foot-brand">DANCE VAULT</span> TECHNOLOGY INC.</div>
+    <div class="foot-r">dancevault.ca</div>
+  </div>
+</footer>
+
+</body>
+</html>
