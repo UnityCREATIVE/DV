@@ -39,7 +39,7 @@ body {
 .bg-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(180deg, rgba(3,1,5,0.7) 0%, rgba(3,1,5,0.95) 100%);
+  background: linear-gradient(180deg, rgba(3,1,5,0.85) 0%, rgba(3,1,5,0.98) 100%);
   z-index: 1;
 }
 
@@ -75,7 +75,7 @@ header {
 .lang-toggle span:hover { color: #ffffff; }
 
 /* ══════════════════════════════════════
-   HERO SECTION & COUNTRY SELECTOR
+   NEW HERO SECTION
 ══════════════════════════════════════ */
 main {
   max-width: 1100px;
@@ -89,11 +89,13 @@ main {
 }
 
 .hero-title {
-  font-size: clamp(36px, 6vw, 54px);
-  font-weight: 300;
+  font-size: clamp(36px, 6vw, 64px);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 400;
   line-height: 1.1;
   margin-bottom: 16px;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .hero-subtitle {
@@ -101,11 +103,107 @@ main {
   color: #aba3c2;
   font-weight: 300;
   max-width: 600px;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
   line-height: 1.6;
 }
 
-/* Step 0: Regional Pricing Container & Popup */
+/* ══════════════════════════════════════
+   VISUAL PROOF (MOCKUP PLACEHOLDER)
+══════════════════════════════════════ */
+.mockup-container {
+  width: 100%;
+  max-width: 300px;
+  height: 600px;
+  background: rgba(0,0,0,0.8);
+  border: 8px solid #222;
+  border-radius: 40px;
+  margin-bottom: 80px;
+  box-shadow: 0 0 50px rgba(242, 206, 232, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.mockup-text {
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+  padding: 20px;
+}
+
+/* ══════════════════════════════════════
+   HOW IT WORKS (1-2-3 STEPS)
+══════════════════════════════════════ */
+.section-title {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  color: #ffffff;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+@media (min-width: 768px) {
+  .steps-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.step-card {
+  text-align: center;
+  padding: 24px;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: #F2CEE8;
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0 auto 20px;
+}
+
+.step-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.step-desc {
+  font-size: 14px;
+  color: #aba3c2;
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* ══════════════════════════════════════
+   PRICING & OPTIONS SECTION
+══════════════════════════════════════ */
+.pricing-section-wrapper {
+  width: 100%;
+  background: rgba(9, 3, 16, 0.4);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 24px;
+}
+
 .pricing-container {
   display: flex;
   flex-direction: column;
@@ -147,7 +245,6 @@ main {
 }
 .pricing-selector select option { background: #090310; color: #ffffff; }
 
-/* The Toggle Link */
 .pricing-info-trigger {
   margin-top: 12px;
   font-size: 12px;
@@ -160,7 +257,6 @@ main {
 }
 .pricing-info-trigger:hover { color: #F2CEE8; }
 
-/* The Hidden Popup Box */
 .pricing-info-popup {
   display: none;
   margin-top: 16px;
@@ -183,15 +279,13 @@ main {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ══════════════════════════════════════
-   THE OPTIONS GRID (3 COLUMNS)
-══════════════════════════════════════ */
 .options-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
   width: 100%;
   margin-bottom: 32px;
+  padding: 0 24px;
 }
 
 @media (min-width: 900px) {
@@ -264,10 +358,12 @@ main {
   border-radius: 16px;
   padding: 32px 40px;
   width: 100%;
+  max-width: 1050px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-top: 20px;
 }
 
 @media (min-width: 768px) {
@@ -304,82 +400,111 @@ main {
 </header>
 
 <main>
-  <h1 class="hero-title">Go Digital in 5 Minutes.</h1>
-  <p class="hero-subtitle">Stop spending thousands on printed paper. Choose your builder, securely enter your venue location, and launch a stunning interactive program to your audience instantly.</p>
+  
+  <h1 class="hero-title">The Ultimate Digital Playbill.</h1>
+  <p class="hero-subtitle">Replace expensive, wasteful printed paper with a stunning interactive mobile experience for your audience.</p>
 
-  <!-- Step 0: Country Dropdown & Pop-up Info -->
-  <div class="pricing-container">
-    <div class="pricing-selector">
-      <label>Event Location:</label>
-      <select id="countrySelect" onchange="updateDynamicPricing()">
-        <option value="tier1">USA / Canada / UK / AUS</option>
-        <option value="tier2">Latin America / Mexico / Colombia</option>
-      </select>
+  <!-- Visual Proof Mockup -->
+  <div class="mockup-container">
+    <div class="mockup-text">[ Auto-playing Video of Program Goes Here ]</div>
+  </div>
+
+  <!-- How It Works Section -->
+  <h2 class="section-title">How It Works</h2>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-number">1</div>
+      <div class="step-title">Enter Details</div>
+      <div class="step-desc">Simply copy and paste your routine rosters, cast bios, and credits into our streamlined builder.</div>
     </div>
-    
-    <div class="pricing-info-trigger" onclick="togglePricingInfo()">
-      ⓘ How our global pricing works
+    <div class="step-card">
+      <div class="step-number">2</div>
+      <div class="step-title">Style Your Brand</div>
+      <div class="step-desc">Upload your studio logo and choose your highlight colors. Our guardrails ensure your design stays perfect.</div>
     </div>
-    
-    <div class="pricing-info-popup" id="pricingPopup">
-      Dance Vault utilizes <strong>Purchasing Power Parity (PPP)</strong> to ensure our software is affordable globally.<br><br>
-      <span class="highlight">Pro Tip: Please select the actual country of your venue.</span> This location is permanently stamped at the top of your live digital program. Selecting the wrong country for a lower rate will display the wrong city to your audience!
+    <div class="step-card">
+      <div class="step-number">3</div>
+      <div class="step-title">Publish & Share</div>
+      <div class="step-desc">Instantly generate a live URL and QR Code. Print one poster for the lobby, and your audience scans to view.</div>
     </div>
   </div>
 
-  <div class="options-grid">
+  <!-- Pricing & Selection Wrapper -->
+  <div class="pricing-section-wrapper" id="pricing">
+    <h2 class="section-title">Ready to Build?</h2>
     
-    <!-- Dance/Music Recital Path -->
-    <div class="option-card">
-      <div class="card-badge">Studio Edition</div>
-      <h2 class="card-title">Dance / Music Recital</h2>
-      <div class="card-price dynamic-price">$49.99 <span class="price-span">USD / event</span></div>
-      <ul class="card-features">
-        <li>Unlimited student rosters & acts</li>
-        <li>Teacher & Choreographer credits</li>
-        <li>Smart UI Contrast Guardrails</li>
-        <li>Sponsor banner integration</li>
-      </ul>
-      <a href="#build" class="cta-button">Start Recital Builder →</a>
+    <div class="pricing-container">
+      <div class="pricing-selector">
+        <label>Event Location:</label>
+        <select id="countrySelect" onchange="updateDynamicPricing()">
+          <option value="tier1">USA / Canada / UK / AUS</option>
+          <option value="tier2">Latin America / Mexico / Colombia</option>
+        </select>
+      </div>
+      
+      <div class="pricing-info-trigger" onclick="togglePricingInfo()">
+        ⓘ How our global pricing works
+      </div>
+      
+      <div class="pricing-info-popup" id="pricingPopup">
+        Dance Vault utilizes <strong>Purchasing Power Parity (PPP)</strong> to ensure our software is affordable globally.<br><br>
+        <span class="highlight">Pro Tip: Please select the actual country of your venue.</span> This location is permanently stamped at the top of your live digital program. Selecting the wrong country for a lower rate will display the wrong city to your audience!
+      </div>
     </div>
 
-    <!-- Theatre Path -->
-    <div class="option-card">
-      <div class="card-badge" style="background:#ffffff;">Theatre Edition</div>
-      <h2 class="card-title">Theatre & Live Music</h2>
-      <div class="card-price dynamic-price">$49.99 <span class="price-span">USD / event</span></div>
-      <ul class="card-features">
-        <li>Lead Cast headshots & biographies</li>
-        <li>Act I & Act II scene breakdowns</li>
-        <li>Director & Crew credits</li>
-        <li>Sponsor banner integration</li>
-      </ul>
-      <a href="#build" class="cta-button">Start Theatre Builder →</a>
+    <div class="options-grid">
+      <!-- Dance/Music Recital Path -->
+      <div class="option-card">
+        <div class="card-badge">Studio Edition</div>
+        <h2 class="card-title">Dance / Music Recital</h2>
+        <div class="card-price dynamic-price">$49.99 <span class="price-span">USD / event</span></div>
+        <ul class="card-features">
+          <li>Unlimited student rosters & acts</li>
+          <li>Teacher & Choreographer credits</li>
+          <li>Smart UI Contrast Guardrails</li>
+          <li>Sponsor banner integration</li>
+        </ul>
+        <a href="#build" class="cta-button">Start Recital Builder →</a>
+      </div>
+
+      <!-- Theatre Path -->
+      <div class="option-card">
+        <div class="card-badge" style="background:#ffffff;">Theatre Edition</div>
+        <h2 class="card-title">Theatre & Live Music</h2>
+        <div class="card-price dynamic-price">$49.99 <span class="price-span">USD / event</span></div>
+        <ul class="card-features">
+          <li>Lead Cast headshots & biographies</li>
+          <li>Act I & Act II scene breakdowns</li>
+          <li>Director & Crew credits</li>
+          <li>Sponsor banner integration</li>
+        </ul>
+        <a href="#build" class="cta-button">Start Theatre Builder →</a>
+      </div>
+
+      <!-- Competitions Path -->
+      <div class="option-card">
+        <div class="card-badge" style="background:#aba3c2;">Enterprise</div>
+        <h2 class="card-title">Competitions & Festivals</h2>
+        <div class="card-price">Custom <span class="price-span">Pricing</span></div>
+        <ul class="card-features">
+          <li>Massive multi-day schedules</li>
+          <li>Segmented competing studios</li>
+          <li>Age categories & scoring blocks</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <a href="#contact" class="cta-button cta-outline">Contact Us</a>
+      </div>
     </div>
 
-    <!-- Competitions Path -->
-    <div class="option-card">
-      <div class="card-badge" style="background:#aba3c2;">Enterprise</div>
-      <h2 class="card-title">Competitions & Festivals</h2>
-      <div class="card-price">Custom <span class="price-span">Pricing</span></div>
-      <ul class="card-features">
-        <li>Massive multi-day schedules</li>
-        <li>Segmented competing studios</li>
-        <li>Age categories & scoring blocks</li>
-        <li>Dedicated account manager</li>
-      </ul>
-      <a href="#contact" class="cta-button cta-outline">Contact Us</a>
+    <!-- White Glove Service Banner -->
+    <div class="white-glove-banner">
+      <div class="wg-text-group">
+        <div class="wg-title">Too busy? Let our experts build it.</div>
+        <div class="wg-desc">Introducing the <strong>White Glove Concierge</strong>. Securely upload your Excel spreadsheets, Word docs, and studio logos, and our team will fully build, design, and verify your program for you.</div>
+      </div>
+      <a href="#concierge" class="wg-button">Request White Glove</a>
     </div>
 
-  </div>
-
-  <!-- White Glove Service Banner -->
-  <div class="white-glove-banner">
-    <div class="wg-text-group">
-      <div class="wg-title">Too busy? Let our experts build it.</div>
-      <div class="wg-desc">Introducing the <strong>White Glove Concierge</strong>. Securely upload your Excel spreadsheets, Word docs, and studio logos, and our team will fully build, design, and verify your program for you.</div>
-    </div>
-    <a href="#concierge" class="wg-button">Request White Glove</a>
   </div>
 
 </main>
