@@ -12,9 +12,8 @@
 <meta property="og:description" content="Secure, high-fidelity media engine and digital playbill creator for the performing arts industry.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dancevault.ca">
-<meta property="og:image" content="https://dancevault.ca/og-image.jpg"> <!-- Ensure you upload a nice preview image here later -->
 
-<!-- LLM GEO JSON-LD Schema (Tells AI what your business is) -->
+<!-- LLM GEO JSON-LD Schema -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -33,11 +32,11 @@
 }
 </script>
 
-<!-- Font Preloading (Fixes the 1-2 second FOUT jump) -->
+<!-- Font Preloading with display=block to fix the jump -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=Jost:wght@200;300;400;500;600&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=Jost:wght@200;300;400;500;600&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=Jost:wght@200;300;400;500;600&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=Jost:wght@200;300;400;500;600&display=block">
 
 <style>
 /* ══════════════════════════════════════
@@ -57,22 +56,8 @@ body {
   position: relative;
 }
 
-/* Pure CSS B&W Crossfade Slideshow */
-#slideshow {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 0;
-  background-color: #000000;
-}
-.bg-slide {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-size: cover;
-  background-position: center center; 
-  filter: grayscale(100%) contrast(1.1) brightness(0.8);
-  opacity: 0;
-  animation: crossfade 30s infinite;
-}
+#slideshow { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; background-color: #000000; }
+.bg-slide { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-size: cover; background-position: center center; filter: grayscale(100%) contrast(1.1) brightness(0.8); opacity: 0; animation: crossfade 30s infinite; }
 @media (max-width: 600px) { .bg-slide { background-position: center 20%; } }
 .bg-slide:nth-child(1) { animation-delay: 0s; }
 .bg-slide:nth-child(2) { animation-delay: 5s; }
@@ -82,14 +67,7 @@ body {
 .bg-slide:nth-child(6) { animation-delay: 25s; }
 @keyframes crossfade { 0% { opacity: 0; } 3.33% { opacity: 1; } 16.66% { opacity: 1; } 20% { opacity: 0; } 100% { opacity: 0; } }
 
-.bg-overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(3,1,5,0.9) 100%);
-  z-index: 1;
-  pointer-events: none;
-}
-
+.bg-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(3,1,5,0.9) 100%); z-index: 1; pointer-events: none; }
 header, main, footer { position: relative; z-index: 2; }
 
 /* Header */
@@ -138,6 +116,7 @@ footer { padding: 24px 24px; border-top: 1px solid rgba(255, 255, 255, 0.05); wi
 <body>
 
 <div id="slideshow">
+  <!-- Ensure these bg images exist or replace them with your preferred placeholders -->
   <div class="bg-slide" style="background-image: url('bg1.jpg');"></div>
   <div class="bg-slide" style="background-image: url('bg2.jpg');"></div>
   <div class="bg-slide" style="background-image: url('bg3.jpg');"></div>
