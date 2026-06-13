@@ -12,8 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Added Barlow Condensed for an elegant, thin mobile fallback -->
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 /* ══════════════════════════════════════
@@ -47,13 +46,12 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background-size: cover;
-  background-position: center center; /* Fixed for perfectly centered desktop viewing */
+  background-position: center center; 
   filter: grayscale(100%) contrast(1.1) brightness(0.8);
   opacity: 0;
   animation: crossfade 30s infinite;
 }
 
-/* Mobile-specific framing for the background image */
 @media (max-width: 600px) {
   .bg-slide {
     background-position: center 20%; 
@@ -98,10 +96,11 @@ header {
   width: 100%;
   margin: 0 auto;
 }
-.brand { display: flex; align-items: baseline; gap: 3px; text-decoration: none; }
-.brand-dv { font-size: 14px; letter-spacing: 0.35em; color: #ffffff; font-weight: 600; text-transform: uppercase; }
-.brand-sep { color: #444; font-size: 12px; margin: 0 2px; }
-.brand-suite { font-size: 12px; letter-spacing: 0.2em; color: #F2CEE8; font-weight: 300; text-transform: uppercase; }
+
+.brand { display: flex; align-items: baseline; gap: 4px; text-decoration: none; }
+.brand-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; color: #ffffff; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 400;}
+.brand-logo .pink { color: #F2CEE8; }
+.brand-suite { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.2em; color: #ffffff; text-transform: uppercase; margin-left: 8px;}
 
 /* ══════════════════════════════════════
    HERO & LIVE TEXT LOGO
@@ -128,7 +127,7 @@ main {
 .live-logo {
   font-family: 'Agency FB', 'Barlow Condensed', sans-serif;
   font-size: clamp(60px, 12vw, 110px);
-  font-weight: 300; /* Set to thin to maintain elegance across all devices */
+  font-weight: 300; 
   line-height: 0.85;
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -315,9 +314,8 @@ footer {
 
 <header>
   <a href="#" class="brand">
-    <span class="brand-dv">DANCE VAULT</span>
-    <span class="brand-sep">·</span>
-    <span class="brand-suite">SUITE</span>
+    <div class="brand-logo"><span class="pink">DANCE</span>VAULT</div>
+    <div class="brand-suite">SUITE</div>
   </a>
 </header>
 
