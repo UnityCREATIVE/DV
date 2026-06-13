@@ -27,14 +27,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Static Cinematic Grayscale Background referencing Master Storefront Style */
 .bg-cinematic {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: url('../DSC_0139.jpg') no-repeat center center; /* References root file */
+  background: url('../DSC_0139.jpg') no-repeat center center; 
   background-size: cover;
   z-index: 0;
-  filter: grayscale(100%) contrast(1.1) brightness(0.35); /* Grayscale & dark for contrast */
+  filter: grayscale(100%) contrast(1.1) brightness(0.35); 
 }
 
 .bg-overlay {
@@ -60,7 +59,7 @@ header {
 }
 .brand { display: flex; align-items: baseline; gap: 4px; text-decoration: none; }
 .brand-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase;}
-.brand-logo .pink { color: #F2CEE8; } /* Dance Vault Pink */
+.brand-logo .pink { color: #F2CEE8; } 
 .brand-logo .white { color: #ffffff; }
 .brand-suite { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.2em; color: #ffffff; text-transform: uppercase; margin-left: 8px;}
 
@@ -76,10 +75,10 @@ header {
 .lang-toggle span:hover { color: #ffffff; }
 
 /* ══════════════════════════════════════
-   HERO SECTION (Show Value First)
+   HERO SECTION 
 ══════════════════════════════════════ */
 main {
-  max-width: 1100px; /* Expanded grid to fit 3 cards */
+  max-width: 1100px; 
   width: 100%;
   margin: 0 auto;
   padding: 40px 24px 80px;
@@ -108,16 +107,16 @@ main {
   line-height: 1.6;
 }
 
-/* Visual Proof Mockup Container (For User Video) */
+/* Visual Proof Mockup Container WITH VIDEO CSS */
 .mockup-container {
   width: 100%;
-  max-width: 300px;
-  height: 600px;
-  background: rgba(0,0,0,0.8); /* Place holder dark color */
-  border: 8px solid #222; /* Frame */
-  border-radius: 40px;
+  max-width: 280px;
+  height: 580px;
+  background: #000; 
+  border: 8px solid #222; 
+  border-radius: 36px;
   margin-bottom: 80px;
-  box-shadow: 0 0 50px rgba(242, 206, 232, 0.15); /* Pinkish glow */
+  box-shadow: 0 0 50px rgba(242, 206, 232, 0.15); 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,11 +124,11 @@ main {
   overflow: hidden;
 }
 
-.mockup-text {
-  font-size: 14px;
-  color: #666;
-  font-style: italic;
-  padding: 20px;
+.mockup-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video fills the iPhone shape perfectly */
+  border-radius: 28px; /* Slightly less than the container to fit inside the border */
 }
 
 /* ══════════════════════════════════════
@@ -192,7 +191,6 @@ main {
 /* ══════════════════════════════════════
    PRICING & OPTIONS SECTION
 ══════════════════════════════════════ */
-/* Full width wrapper for pricing area */
 .pricing-section-wrapper {
   width: 100%;
   background: rgba(9, 3, 16, 0.4);
@@ -204,14 +202,13 @@ main {
   border-radius: 24px;
 }
 
-/* Step 0: Regional Pricing Dropdown & Pop-up Info */
 .pricing-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 48px;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .pricing-selector {
@@ -226,7 +223,6 @@ main {
   justify-content: center;
 }
 
-/* Design fix for mobile Event Location cramped design */
 @media (max-width: 480px) {
   .pricing-selector {
     flex-direction: column;
@@ -255,14 +251,10 @@ main {
   cursor: pointer;
   outline: none;
 }
-@media (max-width: 480px) { .pricing-selector select { font-size: 13px; } }
+@media (max-width: 480px) { .pricing-selector select { font-size: 13px; text-align: center; } }
 
-.pricing-selector select option {
-  background: #090310;
-  color: #ffffff;
-}
+.pricing-selector select option { background: #090310; color: #ffffff; }
 
-/* The Toggle Link */
 .pricing-info-trigger {
   margin-top: 12px;
   font-size: 12px;
@@ -275,7 +267,6 @@ main {
 }
 .pricing-info-trigger:hover { color: #F2CEE8; }
 
-/* The Hidden Popup Box */
 .pricing-info-popup {
   display: none;
   margin-top: 16px;
@@ -298,9 +289,6 @@ main {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ══════════════════════════════════════
-   THE OPTIONS GRID (3 COLUMNS)
-══════════════════════════════════════ */
 .options-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -317,7 +305,6 @@ main {
 .option-card {
   background: rgba(9, 3, 16, 0.6);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 40px 30px;
@@ -343,7 +330,6 @@ main {
 
 .card-title { font-size: 24px; font-weight: 400; margin-bottom: 8px; }
 
-/* Dynamic Price Display */
 .card-price {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 32px;
@@ -369,10 +355,7 @@ main {
 }
 .cta-button:hover { background: #F2CEE8; }
 
-/* Contact button styling for Enterprise features */
-.cta-outline {
-  background: transparent; color: #ffffff; border: 1px solid #ffffff;
-}
+.cta-outline { background: transparent; color: #ffffff; border: 1px solid #ffffff; }
 .cta-outline:hover { background: rgba(255,255,255,0.1); }
 
 /* ══════════════════════════════════════
@@ -381,7 +364,6 @@ main {
 .white-glove-banner {
   background: linear-gradient(135deg, rgba(242, 206, 232, 0.15) 0%, rgba(9, 3, 16, 0.8) 100%);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(242, 206, 232, 0.3);
   border-radius: 16px;
   padding: 32px 40px;
@@ -391,13 +373,11 @@ main {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 20px; /* Separator spacing */
+  margin-top: 20px; 
 }
 
 @media (min-width: 768px) {
-  .white-glove-banner {
-    flex-direction: row; text-align: left; justify-content: space-between;
-  }
+  .white-glove-banner { flex-direction: row; text-align: left; justify-content: space-between; }
 }
 
 .wg-text-group { max-width: 600px; margin-bottom: 20px; }
@@ -418,7 +398,6 @@ main {
 <div class="bg-cinematic"></div>
 <div class="bg-overlay"></div>
 
-<!-- HEADER referencing new Barlow logo style -->
 <header>
   <a href="/" class="brand">
     <div class="brand-logo"><span class="pink">DANCE</span><span class="white">VAULT</span></div>
@@ -432,22 +411,25 @@ main {
 
 <main>
   
-  <!-- Content refined to show value first -->
   <h1 class="hero-title">The Ultimate Digital Playbill.</h1>
   <p class="hero-subtitle">Replace expensive, wasteful printed paper with a stunning interactive mobile experience for your audience.</p>
 
-  <!-- Visual Proof Mockup Container (User adds video here) -->
+  <!-- Visual Proof Mockup Container WITH EMBEDDED VIDEO -->
   <div class="mockup-container">
-    <div class="mockup-text">[ Auto-playing Video of Program Goes Here ]</div>
+    <video autoplay loop muted playsinline class="mockup-video">
+      <!-- Ensure 'program-demo.mp4' is uploaded to the same folder or root directory -->
+      <source src="../program-demo.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 
-  <!-- How It Works Section with Content Updates -->
+  <!-- How It Works Section -->
   <h2 class="section-title">How It Works</h2>
   <div class="steps-grid">
     <div class="step-card">
       <div class="step-number">1</div>
       <div class="step-title">Enter Details</div>
-      <div class="step-desc">Simply copy and paste your routine rosters, cast bios (if applicable), and other relevant event info like credits, venue details, media links, and sponsor information into our streamlined builder. <span style="font-size: 11px; color: #777; display:block; margin-top: 6px;">*Features depend on the plan</span></div>
+      <div class="step-desc">Simply copy and paste your program lists, cast bios (if applicable), and other relevant event info like credits, venue details, media links, and sponsor information into our streamlined builder. <span style="font-size: 11px; color: #777; display:block; margin-top: 6px;">*Features depend on the plan</span></div>
     </div>
     <div class="step-card">
       <div class="step-number">2</div>
@@ -461,17 +443,17 @@ main {
     </div>
   </div>
 
-  <!-- Pricing & Selection Wrapper (Moved Down) -->
+  <!-- Pricing & Selection Wrapper -->
   <div class="pricing-section-wrapper" id="pricing">
     <h2 class="section-title">Ready to Build?</h2>
     
-    <!-- Step 0: Country Dropdown & Pop-up Info -->
+    <!-- Step 0: Continental Dropdown Updates -->
     <div class="pricing-container">
       <div class="pricing-selector">
         <label>Event Location:</label>
         <select id="countrySelect" onchange="updateDynamicPricing()">
-          <option value="tier1">USA / Canada / UK / AUS</option>
-          <option value="tier2">Latin America / Mexico / Colombia</option>
+          <option value="tier1">USA / Canada / UK / Europe / ANZ / Asia</option>
+          <option value="tier2">Latin America / Africa / Rest of World</option>
         </select>
       </div>
       
@@ -487,14 +469,14 @@ main {
 
     <div class="options-grid">
       
-      <!-- Dance/Music Recital Path (Corrected feature list) -->
+      <!-- Dance/Music Recital Path (Updated 3-Day Cap) -->
       <div class="option-card">
         <div class="card-badge">Studio Edition</div>
         <h2 class="card-title">Dance / Music Recital</h2>
         <div class="card-price dynamic-price">$49.99 <span class="price-span">USD / event</span></div>
         <ul class="card-features">
-          <li>Unlimited student rosters & acts</li>
-          <li>Multi-Day & Multi-Show Capability (VPS-style)</li>
+          <li>Unlimited program lists & acts</li>
+          <li>Up to 3-Day Multi-Show Capability</li>
           <li>Integrated 6-Image Photo Gallery</li>
           <li>Teacher & Choreographer credits</li>
           <li>Smart UI Contrast Guardrails</li>
@@ -503,7 +485,7 @@ main {
         <a href="#build" class="cta-button">Start Recital Builder →</a>
       </div>
 
-      <!-- Theatre Path (Corrected feature list) -->
+      <!-- Theatre Path -->
       <div class="option-card">
         <div class="card-badge" style="background:#ffffff;">Theatre Edition</div>
         <h2 class="card-title">Theatre & Live Music</h2>
@@ -519,7 +501,7 @@ main {
         <a href="#build" class="cta-button">Start Theatre Builder →</a>
       </div>
 
-      <!-- Competitions Path (handle multi-discipline schedules) -->
+      <!-- Competitions Path -->
       <div class="option-card">
         <div class="card-badge" style="background:#aba3c2;">Enterprise</div>
         <h2 class="card-title">Competitions & Festivals</h2>
@@ -536,7 +518,6 @@ main {
 
     </div>
 
-    <!-- White Glove Service Banner (Added right to storefront) -->
     <div class="white-glove-banner">
       <div class="wg-text-group">
         <div class="wg-title">Too busy? Let our experts build it.</div>
@@ -550,25 +531,21 @@ main {
 </main>
 
 <script>
-  // Simple JS to prove the PPP Dynamic Pricing works beautifully
   function updateDynamicPricing() {
     const selector = document.getElementById('countrySelect');
     const priceElements = document.querySelectorAll('.dynamic-price');
     
-    // Tier 2 Price
     if (selector.value === 'tier2') {
       priceElements.forEach(el => {
         el.innerHTML = '$15.00 <span class="price-span">USD / event</span>';
       });
     } else {
-      // Tier 1 Price
       priceElements.forEach(el => {
         el.innerHTML = '$49.99 <span class="price-span">USD / event</span>';
       });
     }
   }
 
-  // Handle the pricing information popup
   function togglePricingInfo() {
     const popup = document.getElementById('pricingPopup');
     popup.classList.toggle('active');
