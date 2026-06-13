@@ -11,7 +11,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;600&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 /* ══════════════════════════════════════
@@ -45,33 +45,32 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background-size: cover;
-  background-position: center;
+  background-position: center top; /* Keeps subjects framed nicely on mobile */
   filter: grayscale(100%) contrast(1.1) brightness(0.8);
   opacity: 0;
-  /* 6 images * 6 seconds each = 36s total loop */
-  animation: crossfade 36s infinite;
+  /* 6 images * 5 seconds each = 30s total loop */
+  animation: crossfade 30s infinite;
 }
 
-/* Each image starts its animation 6 seconds after the previous one.
-*/
+/* Delay staggered by exactly 5 seconds */
 .bg-slide:nth-child(1) { animation-delay: 0s; }
-.bg-slide:nth-child(2) { animation-delay: 6s; }
-.bg-slide:nth-child(3) { animation-delay: 12s; }
-.bg-slide:nth-child(4) { animation-delay: 18s; }
-.bg-slide:nth-child(5) { animation-delay: 24s; }
-.bg-slide:nth-child(6) { animation-delay: 30s; }
+.bg-slide:nth-child(2) { animation-delay: 5s; }
+.bg-slide:nth-child(3) { animation-delay: 10s; }
+.bg-slide:nth-child(4) { animation-delay: 15s; }
+.bg-slide:nth-child(5) { animation-delay: 20s; }
+.bg-slide:nth-child(6) { animation-delay: 25s; }
 
-/* Keyframes logic for 6 images (16.66% of timeline per image):
-  0% - 5.5%: Fade in
-  5.5% - 16.6%: Stay solid
-  16.6% - 22.2%: Fade out
-  22.2% - 100%: Stay hidden
+/* Math for a 30s loop with 5s holds & 1s crossfades:
+  0% - 3.33% (0-1s): Fade in
+  3.33% - 16.66% (1-5s): Hold solid
+  16.66% - 20% (5-6s): Fade out
+  20% - 100% (6-30s): Hidden
 */
 @keyframes crossfade {
   0% { opacity: 0; }
-  5.5% { opacity: 1; }
-  16.6% { opacity: 1; }
-  22.2% { opacity: 0; }
+  3.33% { opacity: 1; }
+  16.66% { opacity: 1; }
+  20% { opacity: 0; }
   100% { opacity: 0; }
 }
 
@@ -125,8 +124,9 @@ main {
   text-align: center;
 }
 
+/* Added Bebas Neue as the universal mobile fallback */
 .live-logo {
-  font-family: 'Agency FB', 'Oswald', sans-serif;
+  font-family: 'Agency FB', 'Bebas Neue', sans-serif;
   font-size: clamp(60px, 12vw, 110px);
   font-weight: 400;
   line-height: 0.85;
@@ -162,6 +162,15 @@ main {
   flex-direction: column;
   align-items: center;
   box-shadow: 0 20px 50px rgba(0,0,0,0.8); 
+}
+
+/* Mobile Fix: Reduce blur so the background isn't ruined on narrow screens */
+@media (max-width: 600px) {
+  .content-wrapper {
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    padding: 30px 20px;
+  }
 }
 
 .notice-badge {
@@ -245,7 +254,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-family: 'Agency FB', 'Oswald', sans-serif;
+  font-family: 'Agency FB', 'Bebas Neue', sans-serif;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0.05em;
