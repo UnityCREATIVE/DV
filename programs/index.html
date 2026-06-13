@@ -4,12 +4,47 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#030105">
-<title>Dance Vault Programs | Go Digital in 5 Minutes</title>
-<meta name="description" content="Create stunning, interactive digital programs for dance recitals, theatre shows, and competitions.">
 
+<!-- SEO & Open Graph Tags -->
+<title>Dance Vault Programs | The Ultimate Digital Playbill</title>
+<meta name="description" content="Replace expensive printed paper with a stunning interactive mobile experience. Digital programs for dance recitals, theatre shows, and competitions.">
+<meta property="og:title" content="Dance Vault Programs">
+<meta property="og:description" content="Create stunning digital playbills and interactive programs in 5 minutes. Save hundreds on printing costs.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dancevault.ca/programs">
+
+<!-- LLM GEO JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Dance Vault Programs",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "The ultimate digital playbill creator for dance recitals, theatre shows, and competitions. Replaces expensive printed paper with a stunning interactive mobile experience for audiences.",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Studio Edition",
+      "price": "149.00",
+      "priceCurrency": "USD"
+    },
+    {
+      "@type": "Offer",
+      "name": "Theatre Edition",
+      "price": "297.00",
+      "priceCurrency": "USD"
+    }
+  ],
+  "url": "https://dancevault.ca/programs"
+}
+</script>
+
+<!-- Font Preloading (Fixes the 1-2 second FOUT jump) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=Jost:wght@200;300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=Jost:wght@200;300;400;500;600&display=swap">
 
 <style>
 /* ══════════════════════════════════════
@@ -48,28 +83,13 @@ header, main, footer { position: relative; z-index: 2; }
 /* ══════════════════════════════════════
    NAVBAR & LANGUAGE TOGGLE
 ══════════════════════════════════════ */
-header {
-  padding: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-}
+header { padding: 24px; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; width: 100%; margin: 0 auto; }
 .brand { display: flex; align-items: baseline; gap: 4px; text-decoration: none; }
 .brand-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase;}
 .brand-logo .pink { color: #F2CEE8; } 
 .brand-logo .white { color: #ffffff; }
 .brand-suite { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.2em; color: #ffffff; text-transform: uppercase; margin-left: 8px;}
-
-.lang-toggle {
-  display: flex;
-  gap: 12px;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-}
+.lang-toggle { display: flex; gap: 12px; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; }
 .lang-toggle span { cursor: pointer; transition: color 0.2s; color: #666; }
 .lang-toggle .active { color: #F2CEE8; }
 .lang-toggle span:hover { color: #ffffff; }
@@ -77,320 +97,71 @@ header {
 /* ══════════════════════════════════════
    HERO SECTION 
 ══════════════════════════════════════ */
-main {
-  max-width: 1100px; 
-  width: 100%;
-  margin: 0 auto;
-  padding: 40px 24px 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
+main { max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 24px 80px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.hero-title { font-size: clamp(36px, 6vw, 64px); font-family: 'Barlow Condensed', sans-serif; font-weight: 400; line-height: 1.1; margin-bottom: 16px; letter-spacing: 0.02em; text-transform: uppercase; }
+.hero-subtitle { font-size: clamp(16px, 3vw, 20px); color: #aba3c2; font-weight: 300; max-width: 600px; margin-bottom: 48px; line-height: 1.6; }
 
-.hero-title {
-  font-size: clamp(36px, 6vw, 64px);
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 400;
-  line-height: 1.1;
-  margin-bottom: 16px;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-.hero-subtitle {
-  font-size: clamp(16px, 3vw, 20px);
-  color: #aba3c2;
-  font-weight: 300;
-  max-width: 600px;
-  margin-bottom: 48px;
-  line-height: 1.6;
-}
-
-/* Visual Proof Mockup Container WITH VIDEO CSS */
-.mockup-container {
-  width: 100%;
-  max-width: 280px;
-  height: 580px;
-  background: #000; 
-  border: 8px solid #222; 
-  border-radius: 36px;
-  margin-bottom: 80px;
-  box-shadow: 0 0 50px rgba(242, 206, 232, 0.15); 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.mockup-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
-  border-radius: 28px; 
-}
+/* Visual Proof Mockup */
+.mockup-container { width: 100%; max-width: 280px; height: 580px; background: #000; border: 8px solid #222; border-radius: 36px; margin-bottom: 80px; box-shadow: 0 0 50px rgba(242, 206, 232, 0.15); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.mockup-video { width: 100%; height: 100%; object-fit: cover; border-radius: 28px; }
 
 /* ══════════════════════════════════════
    HOW IT WORKS (1-2-3 STEPS)
 ══════════════════════════════════════ */
-.section-title {
-  font-size: 24px;
-  font-weight: 400;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 40px;
-  color: #ffffff;
-}
-
-.steps-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
-  width: 100%;
-  margin-bottom: 100px;
-}
-
-@media (min-width: 768px) {
-  .steps-grid { grid-template-columns: 1fr 1fr 1fr; }
-}
-
-.step-card {
-  text-align: center;
-  padding: 24px;
-}
-
-.step-number {
-  width: 40px;
-  height: 40px;
-  background: #F2CEE8;
-  color: #000;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  font-size: 18px;
-  margin: 0 auto 20px;
-}
-
-.step-title {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 12px;
-  color: #ffffff;
-}
-
-.step-desc {
-  font-size: 14px;
-  color: #aba3c2;
-  line-height: 1.6;
-  font-weight: 300;
-}
+.section-title { font-size: 24px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 40px; color: #ffffff; }
+.steps-grid { display: grid; grid-template-columns: 1fr; gap: 32px; width: 100%; margin-bottom: 100px; }
+@media (min-width: 768px) { .steps-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.step-card { text-align: center; padding: 24px; }
+.step-number { width: 40px; height: 40px; background: #F2CEE8; color: #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 18px; margin: 0 auto 20px; }
+.step-title { font-size: 18px; font-weight: 500; margin-bottom: 12px; color: #ffffff; }
+.step-desc { font-size: 14px; color: #aba3c2; line-height: 1.6; font-weight: 300; }
 
 /* ══════════════════════════════════════
    PRICING & OPTIONS SECTION
 ══════════════════════════════════════ */
-.pricing-section-wrapper {
-  width: 100%;
-  background: rgba(9, 3, 16, 0.4);
-  border-top: 1px solid rgba(255,255,255,0.05);
-  padding: 60px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 24px;
-}
-
-.pricing-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 48px;
-  width: 100%;
-  max-width: 500px;
-}
-
-.pricing-selector {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 30px;
-  padding: 8px 24px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  width: 100%;
-  justify-content: center;
-}
-
-@media (max-width: 480px) {
-  .pricing-selector {
-    flex-direction: column;
-    padding: 16px 12px;
-    gap: 8px;
-    border-radius: 16px;
-  }
-}
-
-.pricing-selector label {
-  font-size: 13px;
-  font-weight: 400;
-  color: #d1cddb;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
+.pricing-section-wrapper { width: 100%; background: rgba(9, 3, 16, 0.4); border-top: 1px solid rgba(255,255,255,0.05); padding: 60px 0; display: flex; flex-direction: column; align-items: center; border-radius: 24px; }
+.pricing-container { display: flex; flex-direction: column; align-items: center; margin-bottom: 48px; width: 100%; max-width: 500px; }
+.pricing-selector { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 30px; padding: 8px 24px; display: flex; align-items: center; gap: 16px; width: 100%; justify-content: center; }
+@media (max-width: 480px) { .pricing-selector { flex-direction: column; padding: 16px 12px; gap: 8px; border-radius: 16px; } }
+.pricing-selector label { font-size: 13px; font-weight: 400; color: #d1cddb; letter-spacing: 0.05em; text-transform: uppercase; }
 @media (max-width: 480px) { .pricing-selector label { font-size: 11px; } }
-
-.pricing-selector select {
-  background: transparent;
-  color: #F2CEE8;
-  border: none;
-  font-family: 'Jost', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  outline: none;
-}
+.pricing-selector select { background: transparent; color: #F2CEE8; border: none; font-family: 'Jost', sans-serif; font-size: 15px; font-weight: 600; cursor: pointer; outline: none; }
 @media (max-width: 480px) { .pricing-selector select { font-size: 13px; text-align: center; } }
-
 .pricing-selector select option { background: #090310; color: #ffffff; }
 
-.pricing-info-trigger {
-  margin-top: 12px;
-  font-size: 12px;
-  color: #aba3c2;
-  cursor: pointer;
-  transition: color 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
+.pricing-info-trigger { margin-top: 12px; font-size: 12px; color: #aba3c2; cursor: pointer; transition: color 0.2s; display: flex; align-items: center; gap: 6px; }
 .pricing-info-trigger:hover { color: #F2CEE8; }
-
-.pricing-info-popup {
-  display: none;
-  margin-top: 16px;
-  background: rgba(9, 3, 16, 0.9);
-  border: 1px solid rgba(242, 206, 232, 0.2);
-  border-radius: 12px;
-  padding: 20px;
-  font-size: 13px;
-  color: #d1cddb;
-  line-height: 1.6;
-  text-align: left;
-  backdrop-filter: blur(10px);
-  animation: fadeIn 0.3s ease;
-}
+.pricing-info-popup { display: none; margin-top: 16px; background: rgba(9, 3, 16, 0.9); border: 1px solid rgba(242, 206, 232, 0.2); border-radius: 12px; padding: 20px; font-size: 13px; color: #d1cddb; line-height: 1.6; text-align: left; backdrop-filter: blur(10px); animation: fadeIn 0.3s ease; }
 .pricing-info-popup.active { display: block; }
 .pricing-info-popup .highlight { color: #F2CEE8; font-weight: 500; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.options-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-  width: 100%;
-  margin-bottom: 32px;
-  padding: 0 24px;
-}
-
-@media (min-width: 900px) {
-  .options-grid { grid-template-columns: 1fr 1fr 1fr; }
-}
-
-.option-card {
-  background: rgba(9, 3, 16, 0.6);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 40px 30px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
+.options-grid { display: grid; grid-template-columns: 1fr; gap: 24px; width: 100%; margin-bottom: 32px; padding: 0 24px; }
+@media (min-width: 900px) { .options-grid { grid-template-columns: 1fr 1fr 1fr; } }
+.option-card { background: rgba(9, 3, 16, 0.6); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 40px 30px; text-align: left; display: flex; flex-direction: column; transition: transform 0.3s ease, border-color 0.3s ease; }
 .option-card:hover { transform: translateY(-4px); border-color: #F2CEE8; }
-
-.card-badge {
-  align-self: flex-start;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  color: #000;
-  background: #F2CEE8;
-  padding: 4px 12px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
+.card-badge { align-self: flex-start; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; color: #000; background: #F2CEE8; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; margin-bottom: 20px; }
 .card-title { font-size: 24px; font-weight: 400; margin-bottom: 8px; }
 
-.card-price {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-size: 32px;
-  font-weight: 500;
-  color: #ffffff;
-  margin-bottom: 24px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
+.card-price { font-family: 'Barlow Condensed', sans-serif; font-size: 32px; font-weight: 500; color: #ffffff; margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); }
 .card-price .price-span { font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300; color: #aba3c2; }
-
 .card-features { list-style: none; margin-bottom: 30px; flex-grow: 1; }
-.card-features li {
-  font-size: 14px; color: #d1cddb; margin-bottom: 12px; padding-left: 20px; position: relative; font-weight: 300;
-}
+.card-features li { font-size: 14px; color: #d1cddb; margin-bottom: 12px; padding-left: 20px; position: relative; font-weight: 300; }
 .card-features li::before { content: '✓'; position: absolute; left: 0; color: #F2CEE8; font-weight: 600; }
 
-.cta-button {
-  display: block; width: 100%; text-align: center;
-  background: #ffffff; color: #000000; text-decoration: none;
-  padding: 16px 24px; border-radius: 8px; font-weight: 500;
-  font-size: 15px; letter-spacing: 0.05em; transition: all 0.3s ease;
-}
+.cta-button { display: block; width: 100%; text-align: center; background: #ffffff; color: #000000; text-decoration: none; padding: 16px 24px; border-radius: 8px; font-weight: 500; font-size: 15px; letter-spacing: 0.05em; transition: all 0.3s ease; }
 .cta-button:hover { background: #F2CEE8; }
-
 .cta-outline { background: transparent; color: #ffffff; border: 1px solid #ffffff; }
 .cta-outline:hover { background: rgba(255,255,255,0.1); }
 
-/* ══════════════════════════════════════
-   WHITE GLOVE SERVICE BANNER
-══════════════════════════════════════ */
-.white-glove-banner {
-  background: linear-gradient(135deg, rgba(242, 206, 232, 0.15) 0%, rgba(9, 3, 16, 0.8) 100%);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(242, 206, 232, 0.3);
-  border-radius: 16px;
-  padding: 32px 40px;
-  width: 100%;
-  max-width: 1050px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-top: 20px; 
-}
-
-@media (min-width: 768px) {
-  .white-glove-banner { flex-direction: row; text-align: left; justify-content: space-between; }
-}
-
+.white-glove-banner { background: linear-gradient(135deg, rgba(242, 206, 232, 0.15) 0%, rgba(9, 3, 16, 0.8) 100%); backdrop-filter: blur(8px); border: 1px solid rgba(242, 206, 232, 0.3); border-radius: 16px; padding: 32px 40px; width: 100%; max-width: 1050px; display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 20px; }
+@media (min-width: 768px) { .white-glove-banner { flex-direction: row; text-align: left; justify-content: space-between; } }
 .wg-text-group { max-width: 600px; margin-bottom: 20px; }
 @media (min-width: 768px) { .wg-text-group { margin-bottom: 0; } }
-
 .wg-title { font-size: 22px; font-weight: 400; color: #F2CEE8; margin-bottom: 8px; }
 .wg-desc { font-size: 14px; color: #d1cddb; line-height: 1.6; font-weight: 300; }
-.wg-button {
-  background: #F2CEE8; color: #000; padding: 14px 32px; border-radius: 8px;
-  text-decoration: none; font-weight: 500; font-size: 14px; letter-spacing: 0.05em; flex-shrink: 0; transition: 0.3s;
-}
+.wg-button { background: #F2CEE8; color: #000; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 14px; letter-spacing: 0.05em; flex-shrink: 0; transition: 0.3s; }
 .wg-button:hover { background: #ffffff; }
-
 </style>
 </head>
 <body>
@@ -467,7 +238,7 @@ main {
       <div class="option-card">
         <div class="card-badge">Studio Edition</div>
         <h2 class="card-title">Dance / Music Recital</h2>
-        <div class="card-price dynamic-price">$49.99 <span class="price-span">USD / event</span></div>
+        <div class="card-price" id="price-studio">$149.00 <span class="price-span">USD / event</span></div>
         <ul class="card-features">
           <li>Unlimited program lists & acts</li>
           <li>Up to 3-Day Multi-Show Capability</li>
@@ -482,7 +253,7 @@ main {
       <div class="option-card">
         <div class="card-badge" style="background:#ffffff;">Theatre Edition</div>
         <h2 class="card-title">Theatre & Live Music</h2>
-        <div class="card-price dynamic-price">$49.99 <span class="price-span">USD / event</span></div>
+        <div class="card-price" id="price-theatre">$297.00 <span class="price-span">USD / event</span></div>
         <ul class="card-features">
           <li>All Studio features, plus advanced tabs</li>
           <li>Lead Cast headshots & biographies</li>
@@ -525,16 +296,15 @@ main {
 <script>
   function updateDynamicPricing() {
     const selector = document.getElementById('countrySelect');
-    const priceElements = document.querySelectorAll('.dynamic-price');
+    const pStudio = document.getElementById('price-studio');
+    const pTheatre = document.getElementById('price-theatre');
     
     if (selector.value === 'tier2') {
-      priceElements.forEach(el => {
-        el.innerHTML = '$15.00 <span class="price-span">USD / event</span>';
-      });
+      pStudio.innerHTML = '$49.00 <span class="price-span">USD / event</span>';
+      pTheatre.innerHTML = '$97.00 <span class="price-span">USD / event</span>';
     } else {
-      priceElements.forEach(el => {
-        el.innerHTML = '$49.99 <span class="price-span">USD / event</span>';
-      });
+      pStudio.innerHTML = '$149.00 <span class="price-span">USD / event</span>';
+      pTheatre.innerHTML = '$297.00 <span class="price-span">USD / event</span>';
     }
   }
 
