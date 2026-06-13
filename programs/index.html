@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#030105">
+<title>Dance Vault Programs | Go Digital in 5 Minutes</title>
+<meta name="description" content="Create stunning, interactive digital programs for dance recitals, theatre shows, and competitions.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ══════════════════════════════════════
+   RESET & FOUNDATION
+══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Jost', sans-serif;
+  background-color: #030105;
+  color: #ffffff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.bg-cinematic {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('../DSC_0139.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: 0;
+  filter: grayscale(100%) contrast(1.1) brightness(0.35); 
+}
+
+.bg-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(3,1,5,0.7) 0%, rgba(3,1,5,0.95) 100%);
+  z-index: 1;
+}
+
+header, main, footer { position: relative; z-index: 2; }
+
+/* ══════════════════════════════════════
+   NAVBAR & LANGUAGE TOGGLE
+══════════════════════════════════════ */
+header {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+.brand { display: flex; align-items: baseline; gap: 4px; text-decoration: none; }
+.brand-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 24px; color: #ffffff; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 400;}
+.brand-logo .pink { color: #F2CEE8; }
+.brand-suite { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.2em; color: #888; text-transform: uppercase; margin-left: 8px;}
+
+.lang-toggle {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+.lang-toggle span { cursor: pointer; transition: color 0.2s; color: #666; }
+.lang-toggle .active { color: #F2CEE8; }
+.lang-toggle span:hover { color: #ffffff; }
+
+/* ══════════════════════════════════════
+   HERO SECTION & COUNTRY SELECTOR
+══════════════════════════════════════ */
+main {
+  max-width: 1100px; /* Expanded to fit 3 cards gracefully */
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: clamp(36px, 6vw, 54px);
+  font-weight: 300;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 3vw, 20px);
+  color: #aba3c2;
+  font-weight: 300;
+  max-width: 600px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Step 0: Regional Pricing Dropdown */
+.pricing-selector {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.pricing-selector label {
+  font-size: 13px;
+  font-weight: 400;
+  color: #d1cddb;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.pricing-selector select {
+  background: transparent;
+  color: #F2CEE8;
+  border: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+}
+
+.pricing-selector select option {
+  background: #090310;
+  color: #ffffff;
+}
+
+/* ══════════════════════════════════════
+   THE OPTIONS GRID (3 COLUMNS)
+══════════════════════════════════════ */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 900px) {
+  .options-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.option-card {
+  background: rgba(9, 3, 16, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 40px 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.option-card:hover { transform: translateY(-4px); border-color: #F2CEE8; }
+
+.card-badge {
+  align-self: flex-start;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #000;
+  background: #F2CEE8;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.card-title { font-size: 24px; font-weight: 400; margin-bottom: 8px; }
+
+/* Dynamic Price Display */
+.card-price {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: #ffffff;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.card-price .price-span { font-family: 'Jost', sans-serif; font-size: 14px; font-weight: 300; color: #aba3c2; }
+
+.card-features { list-style: none; margin-bottom: 30px; flex-grow: 1; }
+.card-features li {
+  font-size: 14px; color: #d1cddb; margin-bottom: 12px; padding-left: 20px; position: relative; font-weight: 300;
+}
+.card-features li::before {
+  content: '✓'; position: absolute; left: 0; color: #F2CEE8; font-weight: 600;
+}
+
+.cta-button {
+  display: block; width: 100%; text-align: center;
+  background: #ffffff; color: #000000; text-decoration: none;
+  padding: 16px 24px; border-radius: 8px; font-weight: 500;
+  font-size: 15px; letter-spacing: 0.05em; transition: all 0.3s ease;
+}
+.cta-button:hover { background: #F2CEE8; }
+
+/* Contact button styling for Enterprise features */
+.cta-outline {
+  background: transparent; color: #ffffff; border: 1px solid #ffffff;
+}
+.cta-outline:hover { background: rgba(255,255,255,0.1); }
+
+/* ══════════════════════════════════════
+   WHITE GLOVE SERVICE BANNER
+══════════════════════════════════════ */
+.white-glove-banner {
+  background: linear-gradient(135deg, rgba(242, 206, 232, 0.15) 0%, rgba(9, 3, 16, 0.8) 100%);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(242, 206, 232, 0.3);
+  border-radius: 16px;
+  padding: 32px 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .white-glove-banner {
+    flex-direction: row; text-align: left; justify-content: space-between;
+  }
+}
+
+.wg-text-group { max-width: 600px; margin-bottom: 20px; }
+@media (min-width: 768px) { .wg-text-group { margin-bottom: 0; } }
+
+.wg-title { font-size: 22px; font-weight: 400; color: #F2CEE8; margin-bottom: 8px; }
+.wg-desc { font-size: 14px; color: #d1cddb; line-height: 1.6; font-weight: 300; }
+.wg-button {
+  background: #F2CEE8; color: #000; padding: 14px 32px; border-radius: 8px;
+  text-decoration: none; font-weight: 500; font-size: 14px; letter-spacing: 0.05em; flex-shrink: 0; transition: 0.3s;
+}
+.wg-button:hover { background: #ffffff; }
+
+/* ══════════════════════════════════════
+   PRICING DISCLAIMER
+══════════════════════════════════════ */
+.pricing-banner {
+  border-top: 1px dashed rgba(255, 255, 255, 0.2);
+  padding-top: 32px;
+  width: 100%;
+  text-align: center;
+  max-width: 800px;
+}
+.pb-title { font-size: 16px; font-weight: 500; color: #aba3c2; margin-bottom: 8px; letter-spacing: 0.05em; text-transform: uppercase; }
+.pb-verify { font-size: 12px; color: #777; font-style: italic; line-height: 1.6; }
+.pb-verify .highlight { color: #F2CEE8; }
+
+</style>
+</head>
+<body>
+
+<div class="bg-cinematic"></div>
+<div class="bg-overlay"></div>
+
+<header>
+  <a href="/" class="brand">
+    <div class="brand-logo"><span class="pink">DANCE</span>VAULT</div>
+    <div class="brand-suite">PROGRAMS</div>
+  </a>
+  <div class="lang-toggle">
+    <span class="active">EN</span>
+    <span>ES</span>
+  </div>
+</header>
+
+<main>
+  <h1 class="hero-title">Go Digital in 5 Minutes.</h1>
+  <p class="hero-subtitle">Stop spending thousands on printed paper. Choose your builder, securely enter your venue location, and launch a stunning interactive program to your audience instantly.</p>
+
+  <!-- Step 0: Country Dropdown triggering JS pricing logic -->
+  <div class="pricing-selector">
+    <label>Event Location:</label>
+    <select id="countrySelect" onchange="updateDynamicPricing()">
+      <option value="tier1">USA / Canada / UK / AUS</option>
+      <option value="tier2">Latin America / Mexico / Colombia</option>
+    </select>
+  </div>
+
+  <div class="options-grid">
+    
+    <!-- Dance Recital Path -->
+    <div class="option-card">
+      <div class="card-badge">Studio Edition</div>
+      <h2 class="card-title">Dance Recital</h2>
+      <div class="card-price dynamic-price">$49.99 <span class="price-span">USD / event</span></div>
+      <ul class="card-features">
+        <li>Unlimited student rosters & acts</li>
+        <li>Teacher & Choreographer credits</li>
+        <li>Smart UI Contrast Guardrails</li>
+        <li>Sponsor banner integration</li>
+      </ul>
+      <a href="#build" class="cta-button">Start Recital Builder →</a>
+    </div>
+
+    <!-- Theatre Path -->
+    <div class="option-card">
+      <div class="card-badge" style="background:#ffffff;">Theatre Edition</div>
+      <h2 class="card-title">Theatre & Live Music</h2>
+      <div class="card-price dynamic-price">$49.99 <span class="price-span">USD / event</span></div>
+      <ul class="card-features">
+        <li>Lead Cast headshots & biographies</li>
+        <li>Act I & Act II scene breakdowns</li>
+        <li>Director & Crew credits</li>
+        <li>Sponsor banner integration</li>
+      </ul>
+      <a href="#build" class="cta-button">Start Theatre Builder →</a>
+    </div>
+
+    <!-- Competitions Path (Contact Us) -->
+    <div class="option-card">
+      <div class="card-badge" style="background:#aba3c2;">Enterprise</div>
+      <h2 class="card-title">Competitions & Festivals</h2>
+      <div class="card-price">Custom <span class="price-span">Pricing</span></div>
+      <ul class="card-features">
+        <li>Massive multi-day schedules</li>
+        <li>Segmented competing studios</li>
+        <li>Age categories & scoring blocks</li>
+        <li>Dedicated account manager</li>
+      </ul>
+      <a href="#contact" class="cta-button cta-outline">Contact Us</a>
+    </div>
+
+  </div>
+
+  <!-- White Glove Service Banner -->
+  <div class="white-glove-banner">
+    <div class="wg-text-group">
+      <div class="wg-title">Too busy? Let our experts build it.</div>
+      <div class="wg-desc">Introducing the <strong>White Glove Concierge</strong>. Securely upload your Excel spreadsheets, Word docs, and studio logos, and our team will fully build, design, and verify your program for you.</div>
+    </div>
+    <a href="#concierge" class="wg-button">Request White Glove</a>
+  </div>
+
+  <!-- Regional Pricing & Verification Notice -->
+  <div class="pricing-banner">
+    <div class="pb-title">Global Fair-Market Pricing Engine</div>
+    <div class="pb-verify">
+      Dance Vault utilizes Purchasing Power Parity (PPP) to ensure our software is affordable globally.<br>
+      <span class="highlight">Pro Tip: Please select the actual country of your venue.</span> This location is permanently stamped at the top of your live digital program. Selecting the wrong country for a lower rate will display the wrong city to your audience!
+    </div>
+  </div>
+
+</main>
+
+<script>
+  // Simple JS to prove the PPP Dynamic Pricing works beautifully
+  function updateDynamicPricing() {
+    const selector = document.getElementById('countrySelect');
+    const priceElements = document.querySelectorAll('.dynamic-price');
+    
+    if (selector.value === 'tier2') {
+      priceElements.forEach(el => {
+        el.innerHTML = '$15.00 <span class="price-span">USD / event</span>';
+      });
+    } else {
+      priceElements.forEach(el => {
+        el.innerHTML = '$49.99 <span class="price-span">USD / event</span>';
+      });
+    }
+  }
+</script>
+
+</body>
+</html>
