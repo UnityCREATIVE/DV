@@ -6,12 +6,14 @@
 <meta name="theme-color" content="#000000">
 <meta name="apple-mobile-web-app-capable" content="yes">
 
+<!-- SEO Meta Tags -->
 <title>Dance Vault | The Digital History of a Dancer</title>
 <meta name="description" content="The permanent digital memory box and keepsake for the performing arts. Interactive digital programs, media clouds, and performance albums for dancers.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<!-- Added Barlow Condensed for an elegant, thin mobile fallback -->
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 /* ══════════════════════════════════════
@@ -45,14 +47,19 @@ body {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background-size: cover;
-  background-position: center top; /* Keeps subjects framed nicely on mobile */
+  background-position: center center; /* Fixed for perfectly centered desktop viewing */
   filter: grayscale(100%) contrast(1.1) brightness(0.8);
   opacity: 0;
-  /* 6 images * 5 seconds each = 30s total loop */
   animation: crossfade 30s infinite;
 }
 
-/* Delay staggered by exactly 5 seconds */
+/* Mobile-specific framing for the background image */
+@media (max-width: 600px) {
+  .bg-slide {
+    background-position: center 20%; 
+  }
+}
+
 .bg-slide:nth-child(1) { animation-delay: 0s; }
 .bg-slide:nth-child(2) { animation-delay: 5s; }
 .bg-slide:nth-child(3) { animation-delay: 10s; }
@@ -60,12 +67,6 @@ body {
 .bg-slide:nth-child(5) { animation-delay: 20s; }
 .bg-slide:nth-child(6) { animation-delay: 25s; }
 
-/* Math for a 30s loop with 5s holds & 1s crossfades:
-  0% - 3.33% (0-1s): Fade in
-  3.33% - 16.66% (1-5s): Hold solid
-  16.66% - 20% (5-6s): Fade out
-  20% - 100% (6-30s): Hidden
-*/
 @keyframes crossfade {
   0% { opacity: 0; }
   3.33% { opacity: 1; }
@@ -124,11 +125,10 @@ main {
   text-align: center;
 }
 
-/* Added Bebas Neue as the universal mobile fallback */
 .live-logo {
-  font-family: 'Agency FB', 'Bebas Neue', sans-serif;
+  font-family: 'Agency FB', 'Barlow Condensed', sans-serif;
   font-size: clamp(60px, 12vw, 110px);
-  font-weight: 400;
+  font-weight: 300; /* Set to thin to maintain elegance across all devices */
   line-height: 0.85;
   letter-spacing: -0.02em;
   text-transform: uppercase;
@@ -164,7 +164,6 @@ main {
   box-shadow: 0 20px 50px rgba(0,0,0,0.8); 
 }
 
-/* Mobile Fix: Reduce blur so the background isn't ruined on narrow screens */
 @media (max-width: 600px) {
   .content-wrapper {
     backdrop-filter: blur(1px);
@@ -254,9 +253,9 @@ main {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  font-family: 'Agency FB', 'Bebas Neue', sans-serif;
+  font-family: 'Agency FB', 'Barlow Condensed', sans-serif;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.05em;
   transition: all 0.3s ease;
 }
@@ -323,7 +322,6 @@ footer {
 </header>
 
 <main>
-  
   <div class="hero-logo-group">
     <div class="live-logo"><span class="pink">DANCE</span><span class="white">VAULT</span></div>
     <h1 class="live-tagline">The digital history of a dancer.</h1>
@@ -331,13 +329,11 @@ footer {
 
   <div class="content-wrapper">
     <div class="notice-badge">CORE VAULT UNDER CONSTRUCTION</div>
-    
     <p class="description">
       We are busy laying the foundation for our secure, high-fidelity media engine—designed to store, organize, and protect every showcase memory from a dancer's first class to graduation.
     </p>
 
     <div class="suite-row">
-      
       <a href="/programs" class="suite-card">
         <div class="sc-text">
           <div class="sc-title">Digital Programs</div>
@@ -345,7 +341,6 @@ footer {
         </div>
         <div class="sc-circle">DVP</div>
       </a>
-
       <div class="suite-card sc-disabled">
         <div class="sc-text">
           <div class="sc-title">Media Cloud</div>
@@ -353,7 +348,6 @@ footer {
         </div>
         <div class="sc-circle">DV</div>
       </div>
-
     </div>
   </div>
 </main>
