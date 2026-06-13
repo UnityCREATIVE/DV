@@ -75,7 +75,7 @@ header {
 .lang-toggle span:hover { color: #ffffff; }
 
 /* ══════════════════════════════════════
-   NEW HERO SECTION
+   HERO SECTION
 ══════════════════════════════════════ */
 main {
   max-width: 1100px;
@@ -107,9 +107,7 @@ main {
   line-height: 1.6;
 }
 
-/* ══════════════════════════════════════
-   VISUAL PROOF (MOCKUP PLACEHOLDER)
-══════════════════════════════════════ */
+/* Visual Proof Mockup */
 .mockup-container {
   width: 100%;
   max-width: 300px;
@@ -225,6 +223,16 @@ main {
   justify-content: center;
 }
 
+/* Design fix for mobile Event Location cramped design */
+@media (max-width: 480px) {
+  .pricing-selector {
+    flex-direction: column;
+    padding: 16px 12px;
+    gap: 8px;
+    border-radius: 16px;
+  }
+}
+
 .pricing-selector label {
   font-size: 13px;
   font-weight: 400;
@@ -232,6 +240,7 @@ main {
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
+@media (max-width: 480px) { .pricing-selector label { font-size: 11px; } }
 
 .pricing-selector select {
   background: transparent;
@@ -243,6 +252,8 @@ main {
   cursor: pointer;
   outline: none;
 }
+@media (max-width: 480px) { .pricing-selector select { font-size: 13px; } }
+
 .pricing-selector select option { background: #090310; color: #ffffff; }
 
 .pricing-info-trigger {
@@ -409,23 +420,23 @@ main {
     <div class="mockup-text">[ Auto-playing Video of Program Goes Here ]</div>
   </div>
 
-  <!-- How It Works Section -->
+  <!-- How It Works Section with Content Updates -->
   <h2 class="section-title">How It Works</h2>
   <div class="steps-grid">
     <div class="step-card">
       <div class="step-number">1</div>
       <div class="step-title">Enter Details</div>
-      <div class="step-desc">Simply copy and paste your routine rosters, cast bios, and credits into our streamlined builder.</div>
+      <div class="step-desc">Simply copy and paste your routine lists, cast bios (if applicable), and other relevant event info like credits, venue details, media links, and sponsor information into our streamlined builder.<span style="font-size: 11px; color: #777; display:block; margin-top: 6px;">*Features depend on the plan</span></div>
     </div>
     <div class="step-card">
       <div class="step-number">2</div>
       <div class="step-title">Style Your Brand</div>
-      <div class="step-desc">Upload your studio logo and choose your highlight colors. Our guardrails ensure your design stays perfect.</div>
+      <div class="step-desc">Upload your custom performance banner and choose your highlight colors. Our guardrails ensure your design stays perfect.</div>
     </div>
     <div class="step-card">
       <div class="step-number">3</div>
       <div class="step-title">Publish & Share</div>
-      <div class="step-desc">Instantly generate a live URL and QR Code. Print one poster for the lobby, and your audience scans to view.</div>
+      <div class="step-desc">Instantly generate a live URL and custom QR Code (optionally include your logo). Print one poster for the lobby, and your audience scans to view.</div>
     </div>
   </div>
 
@@ -459,7 +470,7 @@ main {
         <h2 class="card-title">Dance / Music Recital</h2>
         <div class="card-price dynamic-price">$49.99 <span class="price-span">USD / event</span></div>
         <ul class="card-features">
-          <li>Unlimited student rosters & acts</li>
+          <li>Unlimited student performer lists</li>
           <li>Teacher & Choreographer credits</li>
           <li>Smart UI Contrast Guardrails</li>
           <li>Sponsor banner integration</li>
