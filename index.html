@@ -15,7 +15,7 @@
 
 <style>
 /* ══════════════════════════════════════
-   RESET & CINEMATIC ANIMATION
+   RESET & FOUNDATION
 ══════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -31,20 +31,48 @@ body {
   position: relative;
 }
 
-/* Cinematic B&W Slow-Zoom Background */
-.bg-cinematic {
+/* ══════════════════════════════════════
+   PURE CSS B&W CROSSFADE SLIDESHOW
+══════════════════════════════════════ */
+#slideshow {
   position: fixed;
-  top: -5%; left: -5%; right: -5%; bottom: -5%;
-  background: url('DSC_0139.jpg') no-repeat center center;
-  background-size: cover;
+  top: 0; left: 0; right: 0; bottom: 0;
   z-index: 0;
-  filter: grayscale(100%) contrast(1.1) brightness(0.8);
-  animation: slowZoom 30s linear infinite alternate;
+  background-color: #000000;
 }
 
-@keyframes slowZoom {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.08); }
+.bg-slide {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%) contrast(1.1) brightness(0.8);
+  opacity: 0;
+  /* 6 images * 6 seconds each = 36s total loop */
+  animation: crossfade 36s infinite;
+}
+
+/* Each image starts its animation 6 seconds after the previous one.
+*/
+.bg-slide:nth-child(1) { animation-delay: 0s; }
+.bg-slide:nth-child(2) { animation-delay: 6s; }
+.bg-slide:nth-child(3) { animation-delay: 12s; }
+.bg-slide:nth-child(4) { animation-delay: 18s; }
+.bg-slide:nth-child(5) { animation-delay: 24s; }
+.bg-slide:nth-child(6) { animation-delay: 30s; }
+
+/* Keyframes logic for 6 images (16.66% of timeline per image):
+  0% - 5.5%: Fade in
+  5.5% - 16.6%: Stay solid
+  16.6% - 22.2%: Fade out
+  22.2% - 100%: Stay hidden
+*/
+@keyframes crossfade {
+  0% { opacity: 0; }
+  5.5% { opacity: 1; }
+  16.6% { opacity: 1; }
+  22.2% { opacity: 0; }
+  100% { opacity: 0; }
 }
 
 /* Gradient overlay for text readability */
@@ -70,7 +98,6 @@ header {
   width: 100%;
   margin: 0 auto;
 }
-/* Tightened the gap from 6px to 3px to bring SUITE closer */
 .brand { display: flex; align-items: baseline; gap: 3px; text-decoration: none; }
 .brand-dv { font-size: 14px; letter-spacing: 0.35em; color: #ffffff; font-weight: 600; text-transform: uppercase; }
 .brand-sep { color: #444; font-size: 12px; margin: 0 2px; }
@@ -123,7 +150,6 @@ main {
    GLASSMORPHISM CONTENT BOX
 ══════════════════════════════════════ */
 .content-wrapper {
-  /* Drastically reduced opacity and blur to reveal the image */
   background: rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -135,7 +161,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.8); /* Stronger shadow to pop it off the background */
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8); 
 }
 
 .notice-badge {
@@ -159,7 +185,6 @@ main {
   margin-bottom: 40px;
   font-weight: 300;
   width: 100%;
-  /* Added text shadow to ensure it stays readable over the dancer's dress */
   text-shadow: 0 2px 10px rgba(0,0,0,0.9);
 }
 
@@ -210,7 +235,6 @@ main {
   font-weight: 300;
 }
 
-/* The CSS Circles */
 .sc-circle {
   width: 50px;
   height: 50px;
@@ -233,7 +257,6 @@ main {
   transform: scale(1.05);
 }
 
-/* Disabled Card Styling */
 .sc-disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -272,7 +295,14 @@ footer {
 </head>
 <body>
 
-<div class="bg-cinematic"></div>
+<div id="slideshow">
+  <div class="bg-slide" style="background-image: url('bg1.jpg');"></div>
+  <div class="bg-slide" style="background-image: url('bg2.jpg');"></div>
+  <div class="bg-slide" style="background-image: url('bg3.jpg');"></div>
+  <div class="bg-slide" style="background-image: url('bg4.jpg');"></div>
+  <div class="bg-slide" style="background-image: url('bg5.jpg');"></div>
+  <div class="bg-slide" style="background-image: url('bg6.jpg');"></div>
+</div>
 <div class="bg-overlay"></div>
 
 <header>
